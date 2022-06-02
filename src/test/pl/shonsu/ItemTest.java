@@ -37,6 +37,6 @@ public class ItemTest {
 
     @Test
     public void itemsWithDifferentPriceAndTheSameNameShouldBeOrdered(){
-        assertEquals(-1, new Item("item1", 0.1).compareTo(new Item("item1", 0.2)));
+        assertEquals(-1, new Item("item1", 0.3).compareTo(new Item("item1", 0.2)));
     }
 }

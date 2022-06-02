@@ -14,7 +14,7 @@ public class Basket {
     }
 
     public void addItem(Item item, Integer number) {
-        if (number < 0) {
+        if (number <= 0) {
             throw new IllegalArgumentException("Number of items must be greater then 0");
         }
 

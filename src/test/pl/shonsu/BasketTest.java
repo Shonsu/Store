@@ -1,13 +1,13 @@
 package pl.shonsu;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class BasketTest {
     private static final double PRICE_DELTA = 0.001;
@@ -28,6 +28,14 @@ class BasketTest {
         assertEquals(expected, basket.getOrder());
     }
 
+    @Test
+    public void shouldntAllowToAddItemWithQuantityZero() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> basket.addItem(toy, 0)
+        );
+        assertEquals("Number of items must be greater then 0", exception.getMessage());
+    }
 
     private static Map<Item, Integer> createOrder(Object... mapContent) {
         Map<Item, Integer> result = new HashMap<>();
