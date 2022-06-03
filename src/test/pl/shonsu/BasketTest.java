@@ -2,6 +2,7 @@ package pl.shonsu;
 
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -108,7 +109,7 @@ class BasketTest {
         expected.append(String.format("Total: %.2f", 3*50.55D));
         assertEquals(expected.toString(), basket.toString());
     }
-    @Test
+    @RepeatedTest(3)
     public void shouldDifferentiateBetweenToysWithSameNameDifferentPrice() {
         basket.addItem(new Item("toy1", 10D));
         basket.addItem(new Item("toy1", 20D));
