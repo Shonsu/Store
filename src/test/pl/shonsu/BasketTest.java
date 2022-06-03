@@ -1,6 +1,7 @@
 package pl.shonsu;
 
-import org.junit.jupiter.api.BeforeAll;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -16,10 +17,10 @@ class BasketTest {
     private static Basket basket;
     private static Item toy;
 
-    @BeforeAll
-    static void setUp() {
+    @BeforeEach
+    void setUp() {
         basket = new Basket();
-        toy = new Item("Ball", 50.55);
+        toy = new Item("toy", 50.55);
     }
 
     @Test
@@ -100,7 +101,6 @@ class BasketTest {
     @Test
     public void shouldPrintSimpleOrder() {
 
-        //Item teddyBear = new Item("Teddy Bear", 10D);
         basket.addItem(toy,3);
         StringBuilder expected = new StringBuilder();
         expected.append(String.format(Basket.ITEM_ORDER_FORMAT,toy.getName(), toy.getPrice(),3, toy.getPrice()*3));
